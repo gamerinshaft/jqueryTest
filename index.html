@@ -11,8 +11,11 @@ var _box = $('#box');
 $(function(){
   _box.find('p').text(_box.width());
 });
+
 $(window).resize(function(){
+  var str = Math.ceil(Math.random()*255);
   _box.find('p').text(_box.width());
+  $("body").css({"background-color":"rgb("+str/Math.ceil(Math.random()*10)+","+str/Math.ceil(Math.random()*10)+","+str/Math.ceil(Math.random()*10)+")"});
 });
 </script>
 </body>
