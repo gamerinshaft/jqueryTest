@@ -1,0 +1,17 @@
+<html>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.1.min.js"></script>
+</head>
+<body>
+<input type="button" id="switch" value="push">
+<div id="box" style="border: solid 1px #ccc; height: 120px; width: 240px; margin-left: auto; margin-right: auto; background-color: #ddd"></div>
+<script>
+$('#switch').click(function(){
+  $('#box').animate({
+    width: Math.ceil(Math.random()*500),
+    height: Math.ceil(Math.random()*500)
+  }, 500);
+});
+</script>
+</body>
+</html>
