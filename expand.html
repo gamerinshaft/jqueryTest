@@ -1,0 +1,24 @@
+<html>
+<head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.5.1.min.js"></script>
+</head>
+<body>
+<input type="button" id="switch1" value="push">
+<input type="button" id="switch2" value="reset">
+<div id="box" style="width: 80%;">
+<p class="hoge" style="font-size: 14px">hoge</p>
+</div>
+<script>
+var _box = $('#box');
+var val = 14;
+$('#switch1').click(function(){
+  val += 1;
+  _box.find('p.hoge').css({"font-size": val + "px"});
+});
+$('#switch2').click(function(){
+  val = 14;
+  _box.find('p.hoge').css({"font-size": val + "px"});
+});
+</script>
+</body>
+</html>
