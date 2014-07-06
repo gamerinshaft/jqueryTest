@@ -5,22 +5,26 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script></head>
 <body style="height: 10000px; min-width: 100%; margin:0">
 <div id="result" style="width: 80%;position: fixed; margin:0; min-width:100%">
-<p>This is scroll !</p>
+<p style="text-align: center; font-size: 450px; color: white; margin: 0">留</p>
 </div>
 <script>
 $(function(){
 
   function getScrollTop(){
-    $("#result").text($(window).scrollTop() + 'px');
+
+
 
     if($(window).scrollTop() > 1000){
+      $("#result").find('p').text('ちゃん');
+      $("#result").find('p').css({'font-size':'300', 'margin-top':'80'});
       $('body').css({'background-color':'red'});
     }else if($(window).scrollTop() > 500){
+      $("#result").find('p').css({'font-size':'450', 'margin':'0'});
+      $("#result").find('p').text('未');
       $('body').css({'background-color':'blue'});
     }else if($(window).scrollTop() < 500){
+    $("#result").find('p').text('海');
       $('body').css({'background-color':'green'});
-    }else if($(window).scrollTop() < 1000){
-      $('body').css({'background-color':'red'});
     }
   }
 
