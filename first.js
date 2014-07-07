@@ -7,10 +7,6 @@ Header = function(){
   var through = 30;
   var lastPos = $window.scrollTop();
 
-  this.initialize = function(){
-    header.css({'top' : - (header.height() + 1), 'position' : 'fixed'})
-  }
-
   var showHeader = function(){
     var params   = {top: - (header.height() + 1)};
     var duration = 400;
