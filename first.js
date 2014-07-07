@@ -22,10 +22,14 @@ var header = function(){
     header.animate({top: 0});
   }
 
+  var isDownerThanHeader = function(){
+    return _window.scrollTop() > obj.offset().top + settings.through;
+  }
+
   var state = function(){
     diffPosition = _window.scrollTop();
 
-    if(_window.scrollTop() > obj.offset().top + settings.through ){
+    if(isDownerThanHeader()){
       if(diffPosition - nowPosition >= 0){
         if(val != 0){
           header.css({'display':'fixed'});
