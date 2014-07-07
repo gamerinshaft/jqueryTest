@@ -23,7 +23,7 @@ var header = function(){
   var state = function(){
     diffPosition = _window.scrollTop();
 
-    if($(window).scrollTop() > target.top + settings.through ){
+    if(_window.scrollTop() > target.top + settings.through ){
       if(diffPosition - nowPosition >= 0){
         if(val != 0){
           header.css({'display':'fixed'});
@@ -50,6 +50,6 @@ var header = function(){
     nowPosition = diffPosition;
   }
 
-  $(window).on('load', initialize);
-  $(window).on('resize scroll', state);
+  _window.on('load', initialize);
+  _window.on('resize scroll', state);
 }
