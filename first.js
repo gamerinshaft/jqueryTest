@@ -18,6 +18,10 @@ Header = function(){
     return $(window).scrollTop() > target.top + settings.through;
   }
 
+  isScrollDown = function(){
+    return diffPosition - nowPosition >= 0;
+  }
+
   function initialize(){
     header.css({'top' : -(settings.height + 1), 'position' : 'fixed'})
   }
@@ -27,7 +31,7 @@ Header = function(){
   function state(){
     diffPosition = $window.scrollTop();
     if(isDownerThanTarget()){
-      if(diffPosition - nowPosition >= 0){
+      if(isScrollDown()){
         if(val != 0){
           header.css({'display':'fixed'});
           header.animate({'top' : -(settings.height + 1)});
