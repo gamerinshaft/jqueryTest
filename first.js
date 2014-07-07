@@ -33,6 +33,10 @@ Header = function(){
     header.animate(params, duration, easing, complete);
   }
 
+  var isPositiveNumber = function(){
+    return $window.scrollTop() >= 0;
+  }
+
   var isDownerThanHeader = function(){
     return $window.scrollTop() > obj.offset().top + through;
   }
@@ -50,26 +54,27 @@ Header = function(){
   }
 
   this.onScroll = function(){
-    if(isDownerThanHeader()){
-      if(isScrollingDownOrStopping()){
-        if(!isAlreadyShownHeader() && !isAnimatingHeader()){
-          header.css({'display':'fixed'});
-          showHeader();
+    if(isPositiveNumber){
+      if(isDownerThanHeader()){
+        if(isScrollingDownOrStopping()){
+          if(!isAlreadyShownHeader() && !isAnimatingHeader()){
+            header.css({'display':'fixed'});
+            showHeader();
+          }
+        }else{
+          if(isAlreadyShownHeader() && !isAnimatingHeader()){
+            header.css({'display':'block', 'position':'fixed'});
+            hideHeader();
+          }
         }
       }else{
-        if(isAlreadyShownHeader() && !isAnimatingHeader()){
-          header.css({'display':'block', 'position':'fixed'});
+        if(isAlreadyShownHeader){
+          console.log('wa');
           hideHeader();
         }
+        console.log('ha');
       }
-    }else{
-      if(isAlreadyShownHeader){
-        console.log('wa');
-        hideHeader();
-      }
-      console.log('ha');
     }
-
     lastPos = $window.scrollTop();
   }
 }
