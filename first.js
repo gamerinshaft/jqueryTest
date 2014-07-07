@@ -1,10 +1,10 @@
 Header = function(){
-  obj = $('#target');
-  header = $('#header');
-  $window = $(window);
-  existing = 'no';
-  nowPosition = $window.scrollTop();
-  var target = {
+  var  obj = $('#target');
+  var  header = $('#header');
+  var  $window = $(window);
+  var  existing = 'no';
+  var  nowPosition = $window.scrollTop();
+  var  target = {
     top: obj.offset().top,
     left: obj.offset().left,
     height: obj.height()
