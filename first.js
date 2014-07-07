@@ -1,8 +1,8 @@
 var header = function(){
-  obj = $('#target');
-  header = $('#header');
+  obj     = $('#target');
+  header  = $('#header');
   _window = $(window);
-  val = 0;
+  val     = 0;
   nowPosition = _window.scrollTop();
 
   var target = {
