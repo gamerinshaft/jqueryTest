@@ -12,8 +12,8 @@ Header = function(){
     var duration = 400;
     var easing   = "swing";
     var complete = function(){
-      animating = 0;
-      existing = 1;
+      animating  = 0;
+      existing   = 1;
     };
 
     animating = 1;
@@ -25,8 +25,8 @@ Header = function(){
     var duration = 400;
     var easing   = "swing";
     var complete = function(){
-      animating = 0;
-      existing = 0;
+      animating  = 0;
+      existing   = 0;
     };
 
     animating = 1;
@@ -42,7 +42,7 @@ Header = function(){
   }
 
   var isAlreadyShownHeader = function(){
-    return existing == 0;
+    return existing == 1;
   }
 
   var isAnimatingHeader = function(){

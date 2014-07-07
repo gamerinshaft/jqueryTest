@@ -17,7 +17,6 @@ $(function(){
   var test = new Header();
   var $window = $(window);
   var header = $('#header');
-
   header.css({'top' : - (header.height() + 1), 'position' : 'fixed'});
   $window.on('resize scroll', test.onScroll);
 
