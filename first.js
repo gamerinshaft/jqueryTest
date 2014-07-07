@@ -1,7 +1,7 @@
-Header = function(){
+Header = function(main, key){
   //----------------------------------------------
-  var target        = $('#target');
-  var header        = $('#header');
+  var header        = $(main);
+  var target        = $(key);
   var $window       = $(window);
   var existing      = 'no';
   var animating     = 'no';
@@ -59,7 +59,7 @@ Header = function(){
     header.css({'top' : -(header.height() + 1), 'position' : 'fixed'});
   }
 
-  this.state = function(){
+  this.onScroll = function(){
     diffPosition = $window.scrollTop();
     if(isDownerThanTarget()){
       if(isScrollDown()){
