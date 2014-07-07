@@ -40,29 +40,27 @@ Header = function(){
     diffPosition = $window.scrollTop();
     if(isDownerThanTarget()){
       if(isScrollDown()){
-        if(!isShowingHeader()){
+        if(isShowingHeader()){
           header.css({'display':'fixed'});
           header.animate({'top' : -(settings.height + 1)});
         }
-        existing = 'yes';
-        console.log(existing)
+        existing = 'no';
       }else{
-        if(!isHidingHeader()){
+        if(isHidingHeader()){
           header.css({'display':'block', 'position':'fixed'});
           header.animate({
             'top' : '0'
           });
         }
-        existing = 'no';
-        console.log(existing)
+        existing = 'yes';
       }
     }else{
-      if(isHidingHeader()){
+      if(isShowingHeader()){
         header.animate({
           'top' : -(settings.height + 1)
         });
       }
-      existing = 'yes';
+      existing = 'no';
     }
     nowPosition = diffPosition;
   }
