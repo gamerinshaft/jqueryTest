@@ -26,11 +26,15 @@ var header = function(){
     return _window.scrollTop() > obj.offset().top + settings.through;
   }
 
+  var isScrollingDownOrStopping = function(){
+    return diffPosition - nowPosition >= 0;
+  }
+
   var state = function(){
     diffPosition = _window.scrollTop();
 
     if(isDownerThanHeader()){
-      if(diffPosition - nowPosition >= 0){
+      if(isScrollingDownOrStopping()){
         if(val != 0){
           header.css({'display':'fixed'});
           showHeader();
