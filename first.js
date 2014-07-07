@@ -2,7 +2,7 @@ Header = function(){
   obj = $('#target');
   header = $('#header');
   $window = $(window);
-  val = 0;
+  existing = 'no';
   nowPosition = $window.scrollTop();
   var target = {
     top: obj.offset().top,
@@ -22,12 +22,12 @@ Header = function(){
     return diffPosition - nowPosition >= 0;
   }
 
-  var isOnceShownHeader = function(){
-    return val == 0;
+  var isShowingHeader = function(){
+    return existing == 'yes';
   }
 
-  var isOnceHideHeader = function(){
-    return val == 1;
+  var isHidingHeader = function(){
+    return existing == 'no';
   }
 
   function initialize(){
@@ -40,27 +40,29 @@ Header = function(){
     diffPosition = $window.scrollTop();
     if(isDownerThanTarget()){
       if(isScrollDown()){
-        if(!isOnceShownHeader()){
+        if(!isShowingHeader()){
           header.css({'display':'fixed'});
           header.animate({'top' : -(settings.height + 1)});
         }
-        val = 0;
+        existing = 'yes';
+        console.log(existing)
       }else{
-        if(!isOnceHideHeader()){
+        if(!isHidingHeader()){
           header.css({'display':'block', 'position':'fixed'});
           header.animate({
             'top' : '0'
           });
         }
-        val = 1;
+        existing = 'no';
+        console.log(existing)
       }
     }else{
-      if(val == 1){
+      if(isHidingHeader()){
         header.animate({
           'top' : -(settings.height + 1)
         });
-        val = 0;
       }
+      existing = 'yes';
     }
     nowPosition = diffPosition;
   }
