@@ -1,11 +1,11 @@
 var header = function(){
-  obj     = $('#target');
-  header  = $('#header');
-  _window = $(window);
-  val     = 0;
-  foo     = 0;
-  through = 30;
-  lastPos = _window.scrollTop();
+  var obj     = $('#target');
+  var header  = $('#header');
+  var _window = $(window);
+  var val     = 0;
+  var foo     = 0;
+  var through = 30;
+  var lastPos = _window.scrollTop();
 
   var initialize = function(){
     header.css({'top' : -(header.height() + 1), 'position' : 'fixed'})
