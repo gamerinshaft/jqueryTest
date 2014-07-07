@@ -1,17 +1,14 @@
 <html>
 <head>
 <meta charset="utf-8">
-
+<link rel="stylesheet" href="simpleScroll.css" type="text/css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="first.js"></script>
+<script src="simpleScroll.js"></script>
 </head>
 
-<body style="height: 10000px; min-width: 100%; margin:0">
-<div id="header" style="border-bottom: solid 1px blue; color: white; font-wiehgt: bold; width: 100%; background-color: midnightblue; text-align: center; font-size: 24px; height: 50px">this is header</div>
-
-
-<div id="target" style="margin-top: 1580px; border: solid 3px green; width: 100%"></div>
-
+<body>
+<div id="header" class="header">this is header</div>
+<div id="target" class="target"></div>
 <script>
 $(function(){
   var test = new Header({header: '#header', target: '#target', through: 250});
