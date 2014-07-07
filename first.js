@@ -35,6 +35,11 @@ Header = function(){
     header.animate({'top' : -(settings.height + 1)});
   }
 
+  var showHeader = function(){
+    header.css({'display':'block', 'position':'fixed'});
+    header.animate({'top' : '0'});
+  }
+
   function initialize(){
     header.css({'top' : -(settings.height + 1), 'position' : 'fixed'})
   }
@@ -49,10 +54,7 @@ Header = function(){
         existing = 'no';
       }else{
         if(isHidingHeader()){
-          header.css({'display':'block', 'position':'fixed'});
-          header.animate({
-            'top' : '0'
-          });
+          showHeader();
         }
         existing = 'yes';
       }
