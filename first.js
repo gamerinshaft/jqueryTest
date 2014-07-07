@@ -1,4 +1,4 @@
-function header(){
+var header = function(){
   obj = $('#target');
   header = $('#header');
   _window = $(window);
