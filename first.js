@@ -1,7 +1,7 @@
 Header = function(){
   obj = $('#target');
   header = $('#header');
-  _window = $(window);
+  $window = $(window);
   val = 0;
   nowPosition = _window.scrollTop();
   var target = {
@@ -13,6 +13,8 @@ Header = function(){
     height: header.height(),
     through: 30
   }
+
+
 
   function initialize(){
     header.css({'top' : -(settings.height + 1), 'position' : 'fixed'})
