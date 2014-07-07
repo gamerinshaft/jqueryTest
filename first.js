@@ -30,23 +30,29 @@ Header = function(){
   }
 
   var hideHeader = function(){
+    animating = 'yes';
     var params = {'top' : -(header.height() + 1)};
     var duration = 400;
     var easing   = "swing";
     var complete = function(){
+      existing = 'no';
+      animating = 'no';
     };
     header.css({'display':'fixed'});
-    header.animate(params, duration, easing, complete);
+    header.animate(params, duration, easing, complete());
   }
 
   var showHeader = function(){
+    animating = 'yes';
     var params = {'top' : '0'};
     var duration = 400;
     var easing   = "swing";
     var complete = function(){
+      existing = 'yes';
+      animating = 'no';
     };
     header.css({'display':'block', 'position':'fixed'});
-    header.animate(params, duration, easing, complete);
+    header.animate(params, duration, easing, complete());
   }
 
   this.initialize = function(){
@@ -57,23 +63,20 @@ Header = function(){
     diffPosition = $window.scrollTop();
     if(isDownerThanTarget()){
       if(isScrollDown()){
-        if(isShowingHeader()){
+        if(isShowingHeader() && !isAnimating()){
           hideHeader();
         }
-        existing = 'no';
       }else{
-        if(isHidingHeader()){
+        if(isHidingHeader() && !isAnimating()){
           showHeader();
         }
-        existing = 'yes';
       }
     }else{
-      if(isShowingHeader()){
+      if(isShowingHeader() && !isAnimating()){
         hideHeader();
       }
-      existing = 'no';
     }
-    lastPosition = diffPosition;
+    lastPosition = $window.scrollTop();
   }
 }
 
