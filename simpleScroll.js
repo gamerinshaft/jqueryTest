@@ -24,7 +24,6 @@ Header = function(elms){
       existing  = false;
       animating = false;
     };
-    header.css({'display':'fixed'});
     header.animate(params, duration, easing, complete());
   }
 
@@ -37,12 +36,7 @@ Header = function(elms){
      existing  = true;
      animating = false;
     };
-    header.css({'display':'block', 'position':'fixed'});
     header.animate(params, duration, easing, complete());
-  }
-
-  this.initialize = function(){
-    header.css({'top' : -(header.height() + 1), 'position' : 'fixed'});
   }
 
   this.onScroll = function(){
