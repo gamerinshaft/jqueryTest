@@ -4,20 +4,25 @@ var header = function(){
   _window = $(window);
   val = 0;
   nowPosition = _window.scrollTop();
+
   var target = {
     top: obj.offset().top,
     left: obj.offset().left,
     height: obj.height()
   }
+
   var settings = {
     height: header.height(),
     through: 30
   }
+
   function initialize(){
     header.css({'top' : -(settings.height + 1), 'position' : 'fixed'})
   }
+
   function state(){
     diffPosition = _window.scrollTop();
+
     if($(window).scrollTop() > target.top + settings.through ){
       if(diffPosition - nowPosition >= 0){
         if(val != 0){
@@ -44,7 +49,7 @@ var header = function(){
     }
     nowPosition = diffPosition;
   }
+
   $(window).on('load', initialize);
   $(window).on('resize scroll', state);
 }
-
