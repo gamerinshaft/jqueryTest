@@ -3,6 +3,7 @@ var header = function(){
   header  = $('#header');
   _window = $(window);
   val     = 0;
+  foo     = 0;
   through = 30;
   nowPosition = _window.scrollTop();
 
@@ -28,6 +29,10 @@ var header = function(){
 
   var isAlreadyShownHeader = function(){
     return val == 0;
+  }
+
+  var isAnimatingHeader = function(){
+    return foo == 1;
   }
 
   var state = function(){
