@@ -3,6 +3,7 @@
 <meta charset="utf-8">
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="first.js"></script>
 </head>
 
 <body style="height: 10000px; min-width: 100%; margin:0">
@@ -10,17 +11,12 @@
 
 <script>
 $(function(){
-  function header(){
-    target = $('#target');
-    this.top = target.offset().top;
-    this.left = target.offset().left;
-  }
-  var obj = new header();
+  var obj = new target();
+
   //----------------------確認用---------------------------//
   var log = function(){console.log(_window.scrollTop())};
   console.log('height is ' + obj.top + ', left is ' + obj.left);
   //------------------------------------------------------//
-
 });
 </script>
 
