@@ -7,14 +7,12 @@
 </head>
 
 <body>
-<div id="header" class="header">this is header</div>
+<div id="header" class="header ss-header-none">this is header</div>
 <div id="target" class="target"></div>
 <script>
 $(function(){
   var test = new Header({header: '#header', target: '#target', through: 250});
-  var initialize = function(){ $('#header').css({'top' : -($('#header').height() + 1), 'position' : 'fixed'});}
-  $(window).on('load', initialize);
-  $(window).on('resize scroll', test.onScroll);
+  $(window).on('load resize scroll', test.onScroll);
 });
 </script>
 
