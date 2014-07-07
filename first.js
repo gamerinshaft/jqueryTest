@@ -58,22 +58,19 @@ var header = function(){
 
     if(isDownerThanHeader()){
       if(isScrollingDownOrStopping()){
-        if(!isAlreadyShownHeader()){
+        if(!isAlreadyShownHeader() && !isAnimatingHeader()){
           header.css({'display':'fixed'});
           showHeader();
         }
-        val = 0;
       }else{
-        if(isAlreadyShownHeader()){
+        if(isAlreadyShownHeader() && !isAnimatingHeader()){
           header.css({'display':'block', 'position':'fixed'});
           hideHeader();
         }
-        val = 1;
       }
     }else{
-      if(!isAlreadyShownHeader()){
+      if(!isAlreadyShownHeader() && !isAnimatingHeader()){
         showHeader();
-        val = 0;
       }
     }
     nowPosition = diffPosition;
