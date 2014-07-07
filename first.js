@@ -1,80 +1,50 @@
-Header = function(){
-  var obj       = $('#target');
-  var header    = $('#header');
-  var $window   = $(window);
-  var existing  = 0;
-  var animating = 0;
-  var through   = 30;
-  var lastPos   = $window.scrollTop();
-
-  var showHeader = function(){
-    var params   = {top: 0};
-    var duration = 400;
-    var easing   = "swing";
-    var complete = function(){
-      animating  = 0;
-      existing   = 1;
-    };
-
-    animating = 1;
-    header.animate(params, duration, easing, complete);
+function header(){
+  obj = $('#target');
+  header = $('#header');
+  _window = $(window);
+  val = 0;
+  nowPosition = _window.scrollTop();
+  var target = {
+    top: obj.offset().top,
+    left: obj.offset().left,
+    height: obj.height()
   }
-
-  var hideHeader = function(){
-    var params   = {top: - (header.height() + 1)};
-    var duration = 400;
-    var easing   = "swing";
-    var complete = function(){
-      animating  = 0;
-      existing   = 0;
-    };
-
-    animating = 1;
-    header.animate(params, duration, easing, complete);
+  var settings = {
+    height: header.height(),
+    through: 30
   }
-
-  var isPositiveNumber = function(){
-    return $window.scrollTop() >= 0;
+  function initialize(){
+    header.css({'top' : -(settings.height + 1), 'position' : 'fixed'})
   }
-
-  var isDownerThanHeader = function(){
-    return $window.scrollTop() > obj.offset().top + through;
-  }
-
-  var isScrollingDownOrStopping = function(){
-    return $window.scrollTop() - lastPos >= 0;
-  }
-
-  var isAlreadyShownHeader = function(){
-    return existing == 1;
-  }
-
-  var isAnimatingHeader = function(){
-    return animating == 1;
-  }
-
-  this.onScroll = function(){
-    if(isPositiveNumber){
-      if(isDownerThanHeader()){
-        if(isScrollingDownOrStopping()){
-          if(!isAlreadyShownHeader() && !isAnimatingHeader()){
-            header.css({'display':'fixed'});
-            showHeader();
-          }
-        }else{
-          if(isAlreadyShownHeader() && !isAnimatingHeader()){
-            header.css({'display':'block', 'position':'fixed'});
-            hideHeader();
-          }
+  function state(){
+    diffPosition = _window.scrollTop();
+    if($(window).scrollTop() > target.top + settings.through ){
+      if(diffPosition - nowPosition >= 0){
+        if(val != 0){
+          header.css({'display':'fixed'});
+          header.animate({'top' : -(settings.height + 1)});
         }
+        val = 0;
       }else{
-        if(isAlreadyShownHeader){
-          console.log('wa');
-          hideHeader();
+        if(val != 1){
+          header.css({'display':'block', 'position':'fixed'});
+          header.animate({
+            'top' : '0'
+          });
         }
-        console.log('ha');
+        val = 1;
+      }
+    }else{
+      if(val == 1){
+        header.animate({
+          'top' : -(settings.height + 1)
+        });
+        val = 0;
       }
     }
-    lastPos = $window.scrollTop();
+    nowPosition = diffPosition;
   }
+  $(window).on('load', initialize);
+  $(window).on('resize scroll', state);
 }
+

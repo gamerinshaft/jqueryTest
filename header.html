@@ -14,12 +14,7 @@
 
 <script>
 $(function(){
-  var test = new Header();
-  var $window = $(window);
-  var header = $('#header');
-  header.css({'top' : - (header.height() + 1), 'position' : 'fixed'});
-  $window.on('resize scroll', test.onScroll);
-
+  var test = new header();
   //----------------------確認用---------------------------//
   // var log = function(){console.log(_window.scrollTop())};
   // console.log('height is ' + obj.top + ', left is ' + obj.left);
