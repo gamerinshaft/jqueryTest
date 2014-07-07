@@ -30,19 +30,21 @@ Header = function(){
     return existing == 'no';
   }
 
+  var hideHeader = function(){
+    header.css({'display':'fixed'});
+    header.animate({'top' : -(settings.height + 1)});
+  }
+
   function initialize(){
     header.css({'top' : -(settings.height + 1), 'position' : 'fixed'})
   }
-
-
 
   function state(){
     diffPosition = $window.scrollTop();
     if(isDownerThanTarget()){
       if(isScrollDown()){
         if(isShowingHeader()){
-          header.css({'display':'fixed'});
-          header.animate({'top' : -(settings.height + 1)});
+          hideHeader();
         }
         existing = 'no';
       }else{
@@ -56,9 +58,7 @@ Header = function(){
       }
     }else{
       if(isShowingHeader()){
-        header.animate({
-          'top' : -(settings.height + 1)
-        });
+        hideHeader();
       }
       existing = 'no';
     }
