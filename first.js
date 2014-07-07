@@ -1,11 +1,11 @@
-Header = function(main, key){
-  var header         = $(main);
-  var target         = $(key);
+Header = function(elms){
+  var header         = $(elms.header);
+  var target         = $(elms.target);
   var $window        = $(window);
   var existing       = false;
   var animating      = false;
   var lastPosition   = $window.scrollTop();
-  var targetThrough  = 30;
+  var targetThrough  = elms.through;
   var latestPosition = $window.scrollTop();
   var isLowerThanTarget = function(){
     return $(window).scrollTop() > target.offset().top + targetThrough;
