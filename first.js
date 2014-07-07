@@ -12,11 +12,29 @@ var header = function(){
   }
 
   var showHeader = function(){
-    header.animate({top: - (header.height() + 1)});
+    var params   = {top: - (header.height() + 1)};
+    var duration = 400;
+    var easing   = "swing";
+    var complete = function(){
+      foo = 0;
+      val = 0;
+    };
+
+    foo = 1;
+    header.animate(params, duration, easing, complete);
   }
 
   var hideHeader = function(){
-    header.animate({top: 0});
+    var params   = {top: 0};
+    var duration = 400;
+    var easing   = "swing";
+    var complete = function(){
+      foo = 0;
+      val = 1;
+    };
+
+    foo = 1;
+    header.animate(params, duration, easing, complete);
   }
 
   var isDownerThanHeader = function(){
