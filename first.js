@@ -6,16 +6,15 @@ var header = function(){
   nowPosition = _window.scrollTop();
 
   var settings = {
-    height: header.height(),
     through: 30
   }
 
   var initialize = function(){
-    header.css({'top' : -(settings.height + 1), 'position' : 'fixed'})
+    header.css({'top' : -(header.height() + 1), 'position' : 'fixed'})
   }
 
   var showHeader = function(){
-    header.animate({top: - (settings.height + 1)});
+    header.animate({top: - (header.height() + 1)});
   }
 
   var hideHeader = function(){
