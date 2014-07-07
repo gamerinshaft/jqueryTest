@@ -3,7 +3,7 @@ Header = function(){
   header = $('#header');
   $window = $(window);
   val = 0;
-  nowPosition = _window.scrollTop();
+  nowPosition = $window.scrollTop();
   var target = {
     top: obj.offset().top,
     left: obj.offset().left,
@@ -19,8 +19,11 @@ Header = function(){
   function initialize(){
     header.css({'top' : -(settings.height + 1), 'position' : 'fixed'})
   }
+
+
+
   function state(){
-    diffPosition = _window.scrollTop();
+    diffPosition = $window.scrollTop();
     if($(window).scrollTop() > target.top + settings.through ){
       if(diffPosition - nowPosition >= 0){
         if(val != 0){
