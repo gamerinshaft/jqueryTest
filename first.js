@@ -1,12 +1,16 @@
-function target(){
-  var obj = $('#target');
-  oya = this;  var oya = this;
-  this.top = obj.offset().top;
-  this.left = obj.offset().left;
+function header(){
+
+  obj = $('#target');
+
+  var target = {
+    top: obj.offset().top,
+    left: obj.offset().left
+  }
+
   function hikaku(){
     console.log($(window).scrollTop());
-    console.log(oya.top);
-    if($(window).scrollTop() > oya.top ){
+    console.log(target.top);
+    if($(window).scrollTop() > target.top ){
       console.log('おおきいよ');
     }
   }
