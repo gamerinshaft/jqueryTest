@@ -5,7 +5,7 @@ var header = function(){
   val     = 0;
   foo     = 0;
   through = 30;
-  nowPosition = _window.scrollTop();
+  lastPos = _window.scrollTop();
 
   var initialize = function(){
     header.css({'top' : -(header.height() + 1), 'position' : 'fixed'})
@@ -42,7 +42,7 @@ var header = function(){
   }
 
   var isScrollingDownOrStopping = function(){
-    return diffPosition - nowPosition >= 0;
+    return diffPosition - lastPos >= 0;
   }
 
   var isAlreadyShownHeader = function(){
@@ -73,7 +73,7 @@ var header = function(){
         showHeader();
       }
     }
-    nowPosition = diffPosition;
+    lastPos = diffPosition;
   }
 
   _window.on('load', initialize);
