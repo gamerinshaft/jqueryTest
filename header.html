@@ -19,7 +19,7 @@ $(function(){
   var header = $('#header');
 
   header.css({'top' : - (header.height() + 1), 'position' : 'fixed'})
-  $window.on('resize scroll', test.state);
+  $window.on('resize scroll', test.onScroll);
 
   //----------------------確認用---------------------------//
   // var log = function(){console.log(_window.scrollTop())};

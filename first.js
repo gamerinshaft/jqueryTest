@@ -49,7 +49,7 @@ Header = function(){
     return foo == 1;
   }
 
-  this.state = function(){
+  this.onScroll = function(){
     if(isDownerThanHeader()){
       if(isScrollingDownOrStopping()){
         if(!isAlreadyShownHeader() && !isAnimatingHeader()){
