@@ -42,7 +42,7 @@ var header = function(){
   }
 
   var isScrollingDownOrStopping = function(){
-    return diffPosition - lastPos >= 0;
+    return _window.scrollTop() - lastPos >= 0;
   }
 
   var isAlreadyShownHeader = function(){
@@ -54,8 +54,6 @@ var header = function(){
   }
 
   var state = function(){
-    diffPosition = _window.scrollTop();
-
     if(isDownerThanHeader()){
       if(isScrollingDownOrStopping()){
         if(!isAlreadyShownHeader() && !isAnimatingHeader()){
@@ -73,7 +71,8 @@ var header = function(){
         showHeader();
       }
     }
-    lastPos = diffPosition;
+
+    lastPos = _window.scrollTop();
   }
 
   _window.on('load', initialize);
