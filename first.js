@@ -1,22 +1,22 @@
 Header = function(){
-  var obj     = $('#target');
-  var header  = $('#header');
-  var $window = $(window);
-  var val     = 0;
-  var foo     = 0;
-  var through = 30;
-  var lastPos = $window.scrollTop();
+  var obj       = $('#target');
+  var header    = $('#header');
+  var $window   = $(window);
+  var existing  = 0;
+  var animating = 0;
+  var through   = 30;
+  var lastPos   = $window.scrollTop();
 
   var showHeader = function(){
     var params   = {top: 0};
     var duration = 400;
     var easing   = "swing";
     var complete = function(){
-      foo = 0;
-      val = 0;
+      animating = 0;
+      existing = 1;
     };
 
-    foo = 1;
+    animating = 1;
     header.animate(params, duration, easing, complete);
   }
 
@@ -25,11 +25,11 @@ Header = function(){
     var duration = 400;
     var easing   = "swing";
     var complete = function(){
-      foo = 0;
-      val = 1;
+      animating = 0;
+      existing = 0;
     };
 
-    foo = 1;
+    animating = 1;
     header.animate(params, duration, easing, complete);
   }
 
@@ -42,11 +42,11 @@ Header = function(){
   }
 
   var isAlreadyShownHeader = function(){
-    return val == 0;
+    return existing == 0;
   }
 
   var isAnimatingHeader = function(){
-    return foo == 1;
+    return animating == 1;
   }
 
   this.onScroll = function(){
