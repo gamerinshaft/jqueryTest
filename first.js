@@ -3,11 +3,8 @@ var header = function(){
   header  = $('#header');
   _window = $(window);
   val     = 0;
+  through = 30;
   nowPosition = _window.scrollTop();
-
-  var settings = {
-    through: 30
-  }
 
   var initialize = function(){
     header.css({'top' : -(header.height() + 1), 'position' : 'fixed'})
@@ -22,7 +19,7 @@ var header = function(){
   }
 
   var isDownerThanHeader = function(){
-    return _window.scrollTop() > obj.offset().top + settings.through;
+    return _window.scrollTop() > obj.offset().top + through;
   }
 
   var isScrollingDownOrStopping = function(){
