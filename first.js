@@ -1,18 +1,18 @@
 Header = function(main, key){
-  var header        = $(main);
-  var target        = $(key);
-  var $window       = $(window);
-  var existing      = false;
-  var animating     = false;
-  var lastPosition  = $window.scrollTop();
-  var targetThrough = 30;
-
+  var header         = $(main);
+  var target         = $(key);
+  var $window        = $(window);
+  var existing       = false;
+  var animating      = false;
+  var lastPosition   = $window.scrollTop();
+  var targetThrough  = 30;
+  var latestPosition = $window.scrollTop();
   var isDownerThanTarget = function(){
     return $(window).scrollTop() > target.offset().top + targetThrough;
   }
 
   var isScrollDown = function(){
-    return diffPosition - lastPosition >= 0;
+    return latestPosition - lastPosition > 0;
   }
 
   var hideHeader = function(){
@@ -46,7 +46,7 @@ Header = function(main, key){
   }
 
   this.onScroll = function(){
-    diffPosition = $window.scrollTop();
+    latestPosition = $window.scrollTop();
     if(isDownerThanTarget()){
       if(isScrollDown()){
         if(existing && !animating){
