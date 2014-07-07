@@ -26,25 +26,29 @@ var header = function(){
     return diffPosition - nowPosition >= 0;
   }
 
+  var isAlreadyShownHeader = function(){
+    return val == 0;
+  }
+
   var state = function(){
     diffPosition = _window.scrollTop();
 
     if(isDownerThanHeader()){
       if(isScrollingDownOrStopping()){
-        if(val != 0){
+        if(!isAlreadyShownHeader()){
           header.css({'display':'fixed'});
           showHeader();
         }
         val = 0;
       }else{
-        if(val != 1){
+        if(isAlreadyShownHeader()){
           header.css({'display':'block', 'position':'fixed'});
           hideHeader();
         }
         val = 1;
       }
     }else{
-      if(val == 1){
+      if(!isAlreadyShownHeader()){
         showHeader();
         val = 0;
       }
