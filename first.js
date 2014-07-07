@@ -2,8 +2,8 @@ Header = function(main, key){
   var header        = $(main);
   var target        = $(key);
   var $window       = $(window);
-  var existing      = 'no';
-  var animating     = 'no';
+  var existing      = false;
+  var animating     = false;
   var lastPosition  = $window.scrollTop();
   var targetThrough = 30;
 
@@ -15,39 +15,27 @@ Header = function(main, key){
     return diffPosition - lastPosition >= 0;
   }
 
-  var isShowingHeader = function(){
-    return existing == 'yes';
-  }
-
-  var isHidingHeader = function(){
-    return existing == 'no';
-  }
-
-  var isAnimating = function(){
-    return animating == 'yes';
-  }
-
   var hideHeader = function(){
-    animating    = 'yes';
+    animating    = true;
     var params   = {'top' : -(header.height() + 1)};
     var duration = 400;
     var easing   = "swing";
     var complete = function(){
-      existing  = 'no';
-      animating = 'no';
+      existing  = false;
+      animating = false;
     };
     header.css({'display':'fixed'});
     header.animate(params, duration, easing, complete());
   }
 
   var showHeader = function(){
-    animating    = 'yes';
+    animating    = true;
     var params   = {'top' : '0'};
     var duration = 400;
     var easing   = "swing";
     var complete = function(){
-     existing  = 'yes';
-     animating = 'no';
+     existing  = true;
+     animating = false;
     };
     header.css({'display':'block', 'position':'fixed'});
     header.animate(params, duration, easing, complete());
@@ -61,16 +49,16 @@ Header = function(main, key){
     diffPosition = $window.scrollTop();
     if(isDownerThanTarget()){
       if(isScrollDown()){
-        if(isShowingHeader() && !isAnimating()){
+        if(existing && !animating){
           hideHeader();
         }
       }else{
-        if(isHidingHeader() && !isAnimating()){
+        if(!existing && !animating){
           showHeader();
         }
       }
     }else{
-      if(isShowingHeader() && !isAnimating()){
+      if(existing && !animating){
         hideHeader();
       }
     }
