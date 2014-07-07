@@ -7,7 +7,7 @@ var header = function(){
   var through = 30;
   var lastPos = $window.scrollTop();
 
-  var initialize = function(){
+  this.initialize = function(){
     header.css({'top' : - (header.height() + 1), 'position' : 'fixed'})
   }
 
@@ -53,7 +53,7 @@ var header = function(){
     return foo == 1;
   }
 
-  var state = function(){
+  this.state = function(){
     if(isDownerThanHeader()){
       if(isScrollingDownOrStopping()){
         if(!isAlreadyShownHeader() && !isAnimatingHeader()){
@@ -74,7 +74,4 @@ var header = function(){
 
     lastPos = $window.scrollTop();
   }
-
-  $window.on('load', initialize);
-  $window.on('resize scroll', state);
 }
