@@ -14,12 +14,20 @@ Header = function(){
     through: 30
   }
 
-  isDownerThanTarget = function(){
+  var isDownerThanTarget = function(){
     return $(window).scrollTop() > target.top + settings.through;
   }
 
-  isScrollDown = function(){
+  var isScrollDown = function(){
     return diffPosition - nowPosition >= 0;
+  }
+
+  var isOnceShownHeader = function(){
+    return val == 0;
+  }
+
+  var isOnceHideHeader = function(){
+    return val == 1;
   }
 
   function initialize(){
@@ -32,13 +40,13 @@ Header = function(){
     diffPosition = $window.scrollTop();
     if(isDownerThanTarget()){
       if(isScrollDown()){
-        if(val != 0){
+        if(!isOnceShownHeader()){
           header.css({'display':'fixed'});
           header.animate({'top' : -(settings.height + 1)});
         }
         val = 0;
       }else{
-        if(val != 1){
+        if(!isOnceHideHeader()){
           header.css({'display':'block', 'position':'fixed'});
           header.animate({
             'top' : '0'
