@@ -1,4 +1,4 @@
-function header(){
+Header = function(){
   obj = $('#target');
   header = $('#header');
   _window = $(window);
@@ -13,6 +13,7 @@ function header(){
     height: header.height(),
     through: 30
   }
+
   function initialize(){
     header.css({'top' : -(settings.height + 1), 'position' : 'fixed'})
   }
