@@ -1,14 +1,14 @@
 var header = function(){
   var obj     = $('#target');
   var header  = $('#header');
-  var _window = $(window);
+  var $window = $(window);
   var val     = 0;
   var foo     = 0;
   var through = 30;
-  var lastPos = _window.scrollTop();
+  var lastPos = $window.scrollTop();
 
   var initialize = function(){
-    header.css({'top' : -(header.height() + 1), 'position' : 'fixed'})
+    header.css({'top' : - (header.height() + 1), 'position' : 'fixed'})
   }
 
   var showHeader = function(){
@@ -38,11 +38,11 @@ var header = function(){
   }
 
   var isDownerThanHeader = function(){
-    return _window.scrollTop() > obj.offset().top + through;
+    return $window.scrollTop() > obj.offset().top + through;
   }
 
   var isScrollingDownOrStopping = function(){
-    return _window.scrollTop() - lastPos >= 0;
+    return $window.scrollTop() - lastPos >= 0;
   }
 
   var isAlreadyShownHeader = function(){
@@ -72,9 +72,9 @@ var header = function(){
       }
     }
 
-    lastPos = _window.scrollTop();
+    lastPos = $window.scrollTop();
   }
 
-  _window.on('load', initialize);
-  _window.on('resize scroll', state);
+  $window.on('load', initialize);
+  $window.on('resize scroll', state);
 }
