@@ -31,17 +31,27 @@ Header = function(){
   }
 
   var hideHeader = function(){
+    var params = {'top' : -(settings.height + 1)};
+    var duration = 400;
+    var easing   = "swing";
+    var complete = function(){
+    };
     header.css({'display':'fixed'});
-    header.animate({'top' : -(settings.height + 1)});
+    header.animate(params, duration, easing, complete);
   }
 
   var showHeader = function(){
+    var params = {'top' : '0'};
+    var duration = 400;
+    var easing   = "swing";
+    var complete = function(){
+    };
     header.css({'display':'block', 'position':'fixed'});
-    header.animate({'top' : '0'});
+    header.animate(params, duration, easing, complete);
   }
 
   this.initialize = function(){
-    header.css({'top' : -(settings.height + 1), 'position' : 'fixed'})
+    header.css({'top' : -(settings.height + 1), 'position' : 'fixed'});
   }
 
   this.state = function(){
