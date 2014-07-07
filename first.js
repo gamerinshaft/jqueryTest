@@ -29,23 +29,19 @@ var header = function(){
       if(diffPosition - nowPosition >= 0){
         if(val != 0){
           header.css({'display':'fixed'});
-          header.animate({'top' : -(settings.height + 1)});
+          showHeader();
         }
         val = 0;
       }else{
         if(val != 1){
           header.css({'display':'block', 'position':'fixed'});
-          header.animate({
-            'top' : '0'
-          });
+          hideHeader();
         }
         val = 1;
       }
     }else{
       if(val == 1){
-        header.animate({
-          'top' : -(settings.height + 1)
-        });
+        showHeader();
         val = 0;
       }
     }
