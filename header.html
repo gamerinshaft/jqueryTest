@@ -6,14 +6,21 @@
 </head>
 
 <body style="height: 10000px; min-width: 100%; margin:0">
-<div id="target">hoge</div>
+<div id="target" style="margin-top: 180px; padding-top: 20px; margin-left: 50px;">hoge</div>
 
 <script>
 $(function(){
-  var $body = $('body');
-  var target = $('#target');
-  $body.append('fuga');
-  target.css({'color':'red'});
+  function header(){
+    target = $('#target');
+    this.top = target.offset().top;
+    this.left = target.offset().left;
+  }
+  var obj = new header();
+  //----------------------確認用---------------------------//
+  var log = function(){console.log(_window.scrollTop())};
+  console.log('height is ' + obj.top + ', left is ' + obj.left);
+  //------------------------------------------------------//
+
 });
 </script>
 
