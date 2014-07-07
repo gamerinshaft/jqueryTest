@@ -15,7 +15,10 @@
 <script>
 $(function(){
   var test = new Header('#header','#target');
-  $(window).on('load', test.initialize);
+
+  var initialize = function(){ $('#header').css({'top' : -($('#header').height() + 1), 'position' : 'fixed'});}
+
+  $(window).on('load', initialize);
   $(window).on('resize scroll', test.onScroll);
 });
 </script>
