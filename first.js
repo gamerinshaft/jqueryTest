@@ -7,7 +7,7 @@ Header = function(main, key){
   var lastPosition   = $window.scrollTop();
   var targetThrough  = 30;
   var latestPosition = $window.scrollTop();
-  var isDownerThanTarget = function(){
+  var isLowerThanTarget = function(){
     return $(window).scrollTop() > target.offset().top + targetThrough;
   }
 
@@ -47,7 +47,7 @@ Header = function(main, key){
 
   this.onScroll = function(){
     latestPosition = $window.scrollTop();
-    if(isDownerThanTarget()){
+    if(isLowerThanTarget()){
       if(isScrollDown()){
         if(existing && !animating){
           hideHeader();
