@@ -16,11 +16,11 @@ var header = function(){
     through: 30
   }
 
-  function initialize(){
+  var initialize = function(){
     header.css({'top' : -(settings.height + 1), 'position' : 'fixed'})
   }
 
-  function state(){
+  var state = function(){
     diffPosition = _window.scrollTop();
 
     if($(window).scrollTop() > target.top + settings.through ){
