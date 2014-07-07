@@ -8,7 +8,7 @@ Header = function(){
   var lastPos = $window.scrollTop();
 
   var showHeader = function(){
-    var params   = {top: - (header.height() + 1)};
+    var params   = {top: 0};
     var duration = 400;
     var easing   = "swing";
     var complete = function(){
@@ -21,7 +21,7 @@ Header = function(){
   }
 
   var hideHeader = function(){
-    var params   = {top: 0};
+    var params   = {top: - (header.height() + 1)};
     var duration = 400;
     var easing   = "swing";
     var complete = function(){
@@ -62,6 +62,12 @@ Header = function(){
           hideHeader();
         }
       }
+    }else{
+      if(isAlreadyShownHeader){
+        console.log('wa');
+        hideHeader();
+      }
+      console.log('ha');
     }
 
     lastPos = $window.scrollTop();
