@@ -14,6 +14,14 @@ var header = function(){
     header.css({'top' : -(settings.height + 1), 'position' : 'fixed'})
   }
 
+  var showHeader = function(){
+    header.animate({top: - (settings.height + 1)});
+  }
+
+  var hideHeader = function(){
+    header.animate({top: 0});
+  }
+
   var state = function(){
     diffPosition = _window.scrollTop();
 
