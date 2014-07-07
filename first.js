@@ -40,11 +40,11 @@ Header = function(){
     header.animate({'top' : '0'});
   }
 
-  function initialize(){
+  this.initialize = function(){
     header.css({'top' : -(settings.height + 1), 'position' : 'fixed'})
   }
 
-  function state(){
+  this.state = function(){
     diffPosition = $window.scrollTop();
     if(isDownerThanTarget()){
       if(isScrollDown()){
@@ -66,7 +66,5 @@ Header = function(){
     }
     nowPosition = diffPosition;
   }
-  $(window).on('load', initialize);
-  $(window).on('resize scroll', state);
 }
 

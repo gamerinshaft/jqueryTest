@@ -15,6 +15,8 @@
 <script>
 $(function(){
   var test = new Header();
+  $(window).on('load', test.initialize);
+  $(window).on('resize scroll', test.state);
   //----------------------確認用---------------------------//
   // var log = function(){console.log(_window.scrollTop())};
   // console.log('height is ' + obj.top + ', left is ' + obj.left);
