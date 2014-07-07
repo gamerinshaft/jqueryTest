@@ -5,12 +5,6 @@ var header = function(){
   val     = 0;
   nowPosition = _window.scrollTop();
 
-  var target = {
-    top: obj.offset().top,
-    left: obj.offset().left,
-    height: obj.height()
-  }
-
   var settings = {
     height: header.height(),
     through: 30
@@ -23,7 +17,7 @@ var header = function(){
   var state = function(){
     diffPosition = _window.scrollTop();
 
-    if(_window.scrollTop() > target.top + settings.through ){
+    if(_window.scrollTop() > obj.offset().top + settings.through ){
       if(diffPosition - nowPosition >= 0){
         if(val != 0){
           header.css({'display':'fixed'});
