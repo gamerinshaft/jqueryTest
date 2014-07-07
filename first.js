@@ -66,10 +66,6 @@ var header = function(){
           hideHeader();
         }
       }
-    }else{
-      if(!isAlreadyShownHeader() && !isAnimatingHeader()){
-        showHeader();
-      }
     }
 
     lastPos = $window.scrollTop();
